@@ -43,8 +43,8 @@ WORKDIR nginx-1.12.2 && ./configure  \
 
 RUN make -j 8 && make install
 
-RUN ln -s /home/dcgz/soft/nginx/sbin/nginx /usr/sbin/
+RUN ln -s /home/dcgz/soft/nginx/sbin/nginx /usr/sbin/nginx
 
-CMD ["nginx"]
+CMD nginx
 
 EXPOSE 80
