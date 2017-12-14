@@ -1,6 +1,6 @@
 FROM ubuntu:16.04
 MAINTAINER  17385815259@163.com
-
+RUN apt-get update
 
 RUN mv /etc/apt/sources.list /etc/apt/sources.list.bak
 COPY  sources.list /etc/apt/sources.list
