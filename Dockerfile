@@ -8,6 +8,7 @@ RUN apt-get install -y zlib1g-dev vim wget
 RUN apt-get install -y libpcre3 libpcre3-dev
 RUN apt-get install -y openssl libssl-dev
 RUN apt-get install -y gcc make build-essential
+&& rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /var/tmp/nginx/client
 RUN mkdir -p /home/dcgz/source
@@ -20,7 +21,7 @@ RUN wget http://cn2.php.net/distributions/php-7.0.26.tar.gz
 
 RUN tar -xf nginx-1.12.2.tar.gz
 RUN tar -xf php-7.0.26.tar.gz
-RUN cd nginx-1.12.2 && ./configure  \
+WORKDIR nginx-1.12.2 && ./configure  \
 --prefix=/home/dcgz/soft/nginx \
 --pid-path=/var/run/nginx.pid \
 --lock-path=/var/lock/nginx.lock \
