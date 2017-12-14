@@ -20,8 +20,7 @@ RUN wget http://cn2.php.net/distributions/php-7.0.26.tar.gz
 
 RUN tar -xf nginx-1.12.2.tar.gz
 RUN tar -xf php-7.0.26.tar.gz
-RUN cd nginx-1.12.2
-RUN ./configure  \
+RUN cd nginx-1.12.2 && ./configure  \
 --prefix=/home/dcgz/soft/nginx \
 --pid-path=/var/run/nginx.pid \
 --lock-path=/var/lock/nginx.lock \
