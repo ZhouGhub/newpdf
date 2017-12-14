@@ -1,4 +1,5 @@
-FROM ubuntu
+MAINTAINER<dcgz-zhou>
+FROM ubuntu 16
 
 RUN apt get update
 RUN apt get install -y wkhtmltopdf xvfb
