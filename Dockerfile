@@ -11,9 +11,7 @@ RUN apt-get install -y libpcre3 libpcre3-dev
 RUN apt-get install -y openssl libssl-dev
 RUN apt-get install -y gcc make build-essential
 
-RUN mkdir -p /home/dcgz/source
-RUN mkdir -p /home/dcgz/soft
-RUN cd /home/dcgz/source
-RUN wget http://nginx.org/download/nginx-1.12.2.tar.gz
-RUN wget http://cn2.php.net/distributions/php-7.0.26.tar.gz
+RUN apt-get install nginx
+CMD service nginx start
 
+EXPOSE 8080
