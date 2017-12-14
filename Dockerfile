@@ -1,6 +1,5 @@
 FROM ubuntu
 MAINTAINER  17385815259@163.com
-ENV BUILD_ROOT /home/dcgz/soft/nginx/sbin/nginx
 
 RUN apt-get update
 RUN apt-get install -y wkhtmltopdf xvfb
@@ -44,6 +43,8 @@ WORKDIR nginx-1.12.2 && ./configure  \
 
 RUN make -j 8 && make install
 
-CMD ["nginx", "-g", "daemon off;"]
+RUN ln -s /home/dcgz/soft/nginx/sbin/nginx /usr/sbin/
+
+CMD ["nginx"]
 
 EXPOSE 80
