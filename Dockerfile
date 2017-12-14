@@ -3,7 +3,7 @@ MAINTAINER  17385815259@163.com
 
 
 RUN mv /etc/apt/sources.list /etc/apt/sources.list.bak
-ADD sources.list /etc/apt/sources.list
+COPY  sources.list /etc/apt/sources.list
 RUN apt-get update
 RUN apt get install -y wkhtmltopdf xvfb
 RUN apt get install -y fonts-arphic-*
