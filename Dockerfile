@@ -10,7 +10,7 @@ RUN apt-get install -y gcc make build-essential
 
 RUN mkdir -p /home/dcgz/source
 RUN mkdir -p /home/dcgz/soft
-RUN cd /home/dcgz/source
+WORKDIR /home/dcgz/source
 RUN wget http://nginx.org/download/nginx-1.12.2.tar.gz
 
 
