@@ -11,7 +11,7 @@ RUN apt-get install -y libpcre3 libpcre3-dev
 RUN apt-get install -y openssl libssl-dev
 RUN apt-get install -y gcc make build-essential
 
-RUN apt-get install nginx
+RUN apt-get install -y nginx
 CMD service nginx start
 
 EXPOSE 8080
