@@ -1,5 +1,5 @@
-MAINTAINER<dcgz-zhou>
-FROM ubuntu 16
+MAINTAINER  17385815259@163.com
+FROM ubuntu
 
 RUN apt get update
 RUN apt get install -y wkhtmltopdf xvfb
