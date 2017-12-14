@@ -1,5 +1,6 @@
-MAINTAINER  17385815259@163.com
 FROM ubuntu:16.04
+MAINTAINER  17385815259@163.com
+
 
 RUN apt get update
 RUN apt get install -y wkhtmltopdf xvfb
