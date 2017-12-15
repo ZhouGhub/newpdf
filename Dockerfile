@@ -27,8 +27,8 @@ WORKDIR /home/dcgz/software && ./configure  \
 --http-scgi-temp-path=/var/tmp/nginx/scgi \
 --with-http_stub_status_module \
 --with-http_gzip_static_module \
-&&make -j 8 && make install
-&&rm -vf /usr/local/nginx/conf/nginx.conf
+&& make -j 8 && make install \
+&& rm -vf /usr/local/nginx/conf/nginx.conf \
 
 ADD nginx.conf /usr/local/nginx/conf/nginx.conf
 
