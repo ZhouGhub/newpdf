@@ -1,4 +1,4 @@
-FROM centos_with_net
+FROM centos:6.5
 MAINTAINER frankie onez0714@163.com
 
 RUN yum -y update
