@@ -22,7 +22,7 @@ RUN wget http://cn2.php.net/distributions/php-7.0.26.tar.gz
 RUN tar -xf nginx-1.12.2.tar.gz
 RUN tar -xf php-7.0.26.tar.gz
 WORKDIR nginx-1.12.2 && ./configure  \
---prefix=/home/dcgz/soft/nginx \
+--prefix=/usr/local/nginx \
 --pid-path=/var/run/nginx.pid \
 --lock-path=/var/lock/nginx.lock \
 --with-http_ssl_module \
@@ -44,7 +44,6 @@ WORKDIR nginx-1.12.2 && ./configure  \
 RUN make -j 8 && make install
 
 ADD nginx.conf /home/dcgz/soft/nginx/conf/nginx.conf
-
-CMD /home/dcgz/soft/nginx/sbin/nginx -g "daemon off;"
+CMD /usr/local/nginx/sbin/nginx -g "daemon off;"
 
 EXPOSE 80
