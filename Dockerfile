@@ -1,4 +1,4 @@
-FROM centos:6.5
+FROM centos:latest
 MAINTAINER frankie onez0714@163.com
 
 RUN yum -y update
