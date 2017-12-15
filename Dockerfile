@@ -1,29 +1,15 @@
-FROM ubuntu
-MAINTAINER  17385815259@163.com
+FROM centos_with_net
+MAINTAINER frankie onez0714@163.com
 
-RUN apt-get update
-RUN apt-get install -y wkhtmltopdf xvfb
-RUN apt-get install -y fonts-arphic-*
-RUN apt-get install -y zlib1g-dev vim wget
-RUN apt-get install -y libpcre3 libpcre3-dev
-RUN apt-get install -y openssl libssl-dev
-RUN apt-get install -y gcc make build-essential \
-    &&rm -rf /var/lib/apt/lists/*
-
-RUN mkdir -p /var/tmp/nginx/client
-RUN mkdir -p /home/dcgz/source
-RUN mkdir -p /home/dcgz/soft
-
-RUN cd /home/dcgz/source
-
+RUN yum -y update
+RUN yum install -y pcre-devel wget net-tools gcc zlib zlib-devel make openssl-devel
+RUM mkdir -p /home/dcgz/software
+RUM mkdir -p /var/tmp/nginx/client
 RUN wget http://nginx.org/download/nginx-1.12.2.tar.gz
-RUN wget http://cn2.php.net/distributions/php-7.0.26.tar.gz
+RUN tar -zxvf nginx-1.12.2.tar.gz
 
-RUN tar -xf nginx-1.12.2.tar.gz
-RUN tar -xf php-7.0.26.tar.gz
-WORKDIR nginx-1.12.2 && ./configure  \
---prefix=/usr/local/nginx \
---sbin-path=/usr/sbin/nginx \
+WORKDIR /home/dcgz/software && ./configure  \
+--prefix=/usr/local/nginx1.12.2 \
 --pid-path=/var/run/nginx.pid \
 --lock-path=/var/lock/nginx.lock \
 --with-http_ssl_module \
@@ -44,9 +30,9 @@ WORKDIR nginx-1.12.2 && ./configure  \
 
 RUN make -j 8 && make install
 
+RUN rm -vf /usr/local/nginx/conf/nginx.conf
 ADD nginx.conf /usr/local/nginx/conf/nginx.conf
-#RUN echo "daemon off;">>/usr/local/nginx/conf/nginx.conf
 
-CMD ["/usr/local/nginx/sbin/nginx”，“ -g”， “daemon off”]
+CMD ["/usr/local/nginx/sbin/nginx"]
 
 EXPOSE 80
