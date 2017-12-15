@@ -47,6 +47,6 @@ RUN make -j 8 && make install
 ADD nginx.conf /usr/local/nginx/conf/nginx.conf
 #RUN echo "daemon off;">>/usr/local/nginx/conf/nginx.conf
 
-CMD ["/usr/local/nginx/sbin/nginx”，“ -g”， “daemon off”]
+CMD ["/usr/local/nginx/sbin/nginx"，"-g"， "daemon off"]
 
 EXPOSE 80
