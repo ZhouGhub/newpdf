@@ -3,10 +3,10 @@ MAINTAINER frankie onez0714@163.com
 
 RUN yum -y update
 RUN yum install -y pcre-devel wget net-tools gcc zlib zlib-devel make openssl-devel
-RUN mkdir -p /home/dcgz/software \
-	&& mkdir -p /var/tmp/nginx/client \
-	&& wget http://nginx.org/download/nginx-1.12.2.tar.gz \
-	&& tar -zxvf nginx-1.12.2.tar.gz \
+RUN mkdir -p /home/dcgz/software
+RUN mkdir -p /var/tmp/nginx/client
+RUN wget http://nginx.org/download/nginx-1.12.2.tar.gz
+RUN tar -zxvf nginx-1.12.2.tar.gz
 
 WORKDIR /home/dcgz/software && ./configure  \
 --prefix=/usr/local/nginx1.12.2 \
