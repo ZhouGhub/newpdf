@@ -45,6 +45,6 @@ RUN make -j 8 && make install
 
 ADD nginx.conf /home/dcgz/soft/nginx/conf/nginx.conf
 
-CMD ./home/dcgz/soft/nginx/sbin/nginx
+CMD /home/dcgz/soft/nginx/sbin/nginx -g "daemon off;"
 
 EXPOSE 80
