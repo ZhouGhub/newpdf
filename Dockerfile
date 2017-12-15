@@ -45,9 +45,8 @@ WORKDIR nginx-1.12.2 && ./configure  \
 RUN make -j 8 && make install
 
 ADD nginx.conf /usr/local/nginx/conf/nginx.conf
-RUN echo "daemon off;">>/usr/local/nginx/conf/nginx.conf
+#RUN echo "daemon off;">>/usr/local/nginx/conf/nginx.conf
 
-ENV PATH /usr/local/nginx/sbin:$PATH
-CMD ["nginx"]
+CMD ["/usr/local/nginx/sbin/nginx”，“ -g”， “daemon off”]
 
 EXPOSE 80
