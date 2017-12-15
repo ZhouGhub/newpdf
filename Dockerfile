@@ -19,5 +19,4 @@ ADD site-config /etc/nginx/sites-available/default
 ADD index.php /var/www/html/index.php
 
 CMD service php7.0-fpm start;nginx
-
 EXPOSE 80
