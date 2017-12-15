@@ -46,7 +46,6 @@ RUN make -j 8 && make install
 ADD nginx.conf /home/dcgz/soft/nginx/conf/nginx.conf
 ADD run.sh /usr/local/sbin/run.sh
 RUN chmod 755 /usr/local/sbin/run.sh
-RUN /home/dcgz/soft/nginx/sbin/nginx
 
 CMD ["/usr/local/sbin/run.sh"]
 
