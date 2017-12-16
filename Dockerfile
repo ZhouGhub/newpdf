@@ -9,9 +9,9 @@ RUN apt-get install -y wkhtmltopdf xvfb
 RUN apt-get install -y fonts-arphic-*
 RUN apt-get install -y zlib1g-dev vim wget
 RUN apt-get install -y libpcre3 libpcre3-dev
-RUN apt-get install -y openssl libssl-dev \
-    && apt-get -y install nginx
-RUN apt-get install -y gcc make build-essential \
+RUN apt-get install -y openssl libssl-dev
+RUN apt-get -y install nginx
+RUN apt-get install -y gcc make build-essential
     &&rm -rf /var/lib/apt/lists/*
 
 ADD nginx.conf /etc/nginx/nginx.conf
