@@ -5,7 +5,7 @@ RUN touch /etc/apt/sources.list.d/nginx.list
 RUN echo "deb http://nginx.org/packages/ubuntu/ xenial nginx" >> /etc/apt/sources.list.d/nginx.list
 RUN echo "deb-src http://nginx.org/packages/ubuntu/ xenial nginx" >> /etc/apt/sources.list.d/nginx.list
 
-RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys $ key
+#RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys $ key
 RUN apt-get update
 RUN apt-get install -y wkhtmltopdf xvfb
 RUN apt-get install -y fonts-arphic-*
