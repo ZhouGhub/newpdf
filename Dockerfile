@@ -38,8 +38,9 @@ WORKDIR nginx-1.12.2 && ./configure  \
 --http-uwsgi-temp-path=/var/tmp/nginx/uwsgi \
 --http-scgi-temp-path=/var/tmp/nginx/scgi \
 --with-http_stub_status_module \
---with-http_gzip_static_module
-&& make -j 8 && make install
+--with-http_gzip_static_module \
+
+&& make && make install
 
 ADD nginx.conf /home/dcgz/soft/nginx/conf/nginx.conf
 CMD /usr/local/nginx/sbin/nginx  -g "daemon off;"
