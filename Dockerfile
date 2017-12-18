@@ -13,10 +13,9 @@ RUN mkdir -p /var/tmp/nginx/client
 RUN mkdir -p /home/dcgz/source
 RUN mkdir -p /home/dcgz/soft
 
-RUN cd /home/dcgz/source
-
-RUN wget http://nginx.org/download/nginx-1.12.2.tar.gz
-RUN wget http://cn2.php.net/distributions/php-7.0.26.tar.gz
+WORKDIR  /home/dcgz/source
+&& wget http://nginx.org/download/nginx-1.12.2.tar.gz
+&& wget http://cn2.php.net/distributions/php-7.0.26.tar.gz
 
 RUN tar -xf nginx-1.12.2.tar.gz
 RUN tar -xf php-7.0.26.tar.gz
@@ -40,7 +39,7 @@ WORKDIR nginx-1.12.2 && ./configure  \
 --with-http_stub_status_module \
 --with-http_gzip_static_module \
 
-&& make && make install
+RUN make && make install
 
 ADD nginx.conf /home/dcgz/soft/nginx/conf/nginx.conf
 CMD /usr/local/nginx/sbin/nginx  -g "daemon off;"
