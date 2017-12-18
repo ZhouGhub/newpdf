@@ -9,10 +9,9 @@ RUN apt-get install -y wkhtmltopdf xvfb
 RUN apt-get install -y fonts-arphic-*
 RUN apt-get install -y zlib1g-dev vim wget
 RUN apt-get install -y libpcre3 libpcre3-dev
-RUN apt-get install -y openssl libssl-dev \
-    && apt-get -y install nginx
-RUN apt-get install -y gcc make build-essential \
-    &&rm -rf /var/lib/apt/lists/*
+RUN apt-get install -y openssl libssl-dev
+RUN apt-get install -y gcc make build-essential
+#RUN apt-get install -y nginx
 
 ADD nginx.conf /etc/nginx/nginx.conf
 ADD site-config /etc/nginx/sites-available/default
@@ -24,5 +23,9 @@ CMD /usr/local/nginx/sbin/nginx -g "daemon off;"
 
 =======
 CMD service php7.0-fpm start;nginx
+<<<<<<< HEAD
 >>>>>>> origin/master
+=======
+
+>>>>>>> 8756db55bc728970d43c6acdcf9126bef98318d8
 EXPOSE 80
