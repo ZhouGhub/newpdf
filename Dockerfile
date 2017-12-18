@@ -13,8 +13,8 @@ RUN mkdir -p /var/tmp/nginx/client
 RUN mkdir -p /home/dcgz/source
 RUN mkdir -p /home/dcgz/soft
 
-RUN wget /home/dcgz/source/http://nginx.org/download/nginx-1.12.2.tar.gz
-RUN wget home/dcgz/source/http://cn2.php.net/distributions/php-7.0.26.tar.gz
+RUN curl /home/dcgz/source/http://nginx.org/download/nginx-1.12.2.tar.gz
+RUN curl home/dcgz/source/http://cn2.php.net/distributions/php-7.0.26.tar.gz
 
 WORKDIR /home/dcgz/source
 RUN tar -xf nginx-1.12.2.tar.gz
