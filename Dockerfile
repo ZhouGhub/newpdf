@@ -5,7 +5,7 @@ RUN echo "deb http://nginx.org/packages/ubuntu/ codename nginx" >> /etc/apt/sour
 RUN echo "deb-src http://nginx.org/packages/ubuntu/ codename nginx" >> /etc/apt/sources.list
 #RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys $ key
 
-RUNapt-key add nginx_signing.key
+RUN apt-key add nginx_signing.key
 RUN apt-get update
 RUN apt-get install -y nginx
 RUN apt-get install -y wkhtmltopdf xvfb
