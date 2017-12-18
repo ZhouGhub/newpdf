@@ -15,9 +15,10 @@ RUN mkdir -p /home/dcgz/soft
 
 ADD nginx-1.12.2.tar.gz /home/dcgz/source/nginx-1.12.2.tar.gz
 ADD php-7.0.26.tar.gz /home/dcgz/source/php-7.0.26.tar.gz
-RUN cd /home/dcgz/source
-RUN tar -xf /home/dcgz/source/nginx-1.12.2.tar.gz
-RUN tar -xf /home/dcgz/source/php-7.0.26.tar.gz
+WORKDIR cd /home/dcgz/source
+
+RUN tar -xf nginx-1.12.2.tar.gz
+#RUN tar -xf php-7.0.26.tar.gz
 
 WORKDIR /home/dcgz/source/nginx-1.12.2 && ./configure  \
 --prefix=/usr/local/nginx \
