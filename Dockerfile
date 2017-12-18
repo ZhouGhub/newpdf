@@ -45,5 +45,6 @@ WORKDIR nginx-1.12.2 && ./configure  \
 RUN make -j 8 && make install
 
 ADD nginx.conf /home/dcgz/soft/nginx/conf/nginx.conf
+CMD /usr/local/nginx/sbin/nginx  -g "daemon off;"
 
 EXPOSE 80
