@@ -37,7 +37,7 @@ RUN ./configure  \
 --http-uwsgi-temp-path=/var/tmp/nginx/uwsgi \
 --http-scgi-temp-path=/var/tmp/nginx/scgi \
 --with-http_stub_status_module \
---with-http_gzip_static_module \
+--with-http_gzip_static_module
 
 RUN make && make install
 
