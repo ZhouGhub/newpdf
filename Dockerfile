@@ -106,11 +106,16 @@ ADD run.sh /usr/local/sbin/run.sh
 #Modify permissions
 ####
 RUN chmod 777 /usr/local/sbin/run.sh
-
+RUN chmod 755 /var/www/site/www.pdf.com/phpinfo.php
 ####
 #Execute the script
 ####
 CMD /usr/local/sbin/run.sh
+
+####
+#VOLUME virtual floder to localhost floder
+####
+#VOLUME ["/data1","/data2"]
 
 EXPOSE 80
 EXPOSE 8080
