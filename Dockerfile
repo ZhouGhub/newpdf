@@ -45,7 +45,7 @@ WORKDIR /home/dcgz/source/php-7.0.26
 RUN ls
 RUN ./configure \
 --prefix=/usr/local/php70 \
---enable-fpm
+--enable-fpm \
 --enable-calendar \
 --enable-ctype \
 --enable-dom \
