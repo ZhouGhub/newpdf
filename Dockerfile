@@ -3,17 +3,17 @@ MAINTAINER  17385815259@163.com
 
 RUN apt-get update
 RUN apt-get install -y wkhtmltopdf xvfb fonts-arphic-* zlib1g-dev vim wget libpcre3 libpcre3-dev openssl libssl-dev gcc make build-essential tar
-
+RUN apt-get install -y zlib1g-dev  bzip2 libzip-dev libjpeg-dev libgd-dev curl libcurl3* libmcrypt4 libmcrypt-dev libssl-dev openssl libreadline-dev libfreetype6-dev
+RUN apt-get install -y
 RUN mkdir -p /var/tmp/nginx/client
 RUN mkdir -p /home/dcgz/source
-RUN mkdir -p /home/dcgz/soft
+RUN mkdir -p /var/www/default
+RUN mkdir -p /var/www/site/www.pdf.com
 
 WORKDIR /home/dcgz/source
 
 RUN wget http://nginx.org/download/nginx-1.12.2.tar.gz
 RUN wget http://cn2.php.net/distributions/php-7.0.26.tar.gz
-
-RUN find / -name "nginx-1.12.2.tar.gz"
 
 RUN tar -xf nginx-1.12.2.tar.gz
 RUN tar -xf php-7.0.26.tar.gz
@@ -41,8 +41,59 @@ RUN ./configure  \
 
 RUN make && make install
 
-ADD nginx.conf /home/dcgz/soft/nginx/conf/nginx.conf
+WORKDIR /home/dcgz/source/php-7.0.26
+RUN ls
+RUN ./configure \
+--prefix=/usr/local/php70 \
+--enable-fpm
+--enable-calendar \
+--enable-ctype \
+--enable-dom \
+--enable-exif \
+--enable-fileinfo \
+--enable-filter \
+--enable-ftp \
+--enable-hash \
+--enable-iconv \
+--enable-json \
+--enable-mbstring \
+--enable-mysqlnd \
+--enable-pcntl \
+--enable-pdo \
+--enable-phar \
+--enable-posix \
+--enable-session \
+--enable-shmop \
+--enable-simplexml \
+--enable-soap \
+--enable-sockets \
+--enable-tokenizer \
+--enable-xml \
+--with-zlib \
+--with-bz2 \
+--with-curl \
+--with-gd \
+--with-mcrypt \
+--with-mysqli \
+--with-openssl \
+--with-readline \
+--with-pdo-mysql=mysqlnd \
+--with-freetype-dir \
+--with-jpeg-dir
 
-CMD /usr/local/nginx/sbin/nginx  -g "daemon off;"
+RUN make && make install
+
+RUN cp /usr/local/php70/etc/php-fpm.conf.default /usr/local/php70/etc/php-fpm.conf
+RUN cp /usr/local/php70/etc/php-fpm.d/www.conf.default /usr/local/php70/etc/php-fpm.d/www.conf
+
+ADD nginx.conf /usr/local/nginx/conf/nginx.conf
+
+ADD run.sh /usr/local/sbin/run.sh
+RUN chmod 777 /usr/local/sbin/run.sh
+
+#CMD /usr/local/nginx/sbin/nginx  -g "daemon off;"
+
+CMD /usr/local/sbin/run.sh
+
 
 EXPOSE 80
