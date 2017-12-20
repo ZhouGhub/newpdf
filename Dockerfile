@@ -18,7 +18,7 @@ RUN find / -name "nginx-1.12.2.tar.gz"
 RUN tar -xf nginx-1.12.2.tar.gz
 RUN tar -xf php-7.0.26.tar.gz
 
-RUN cd /home/dcgz/source/nginx-1.12.2
+WORKDIR /home/dcgz/source/nginx-1.12.2
 RUN ./configure  \
 --prefix=/usr/local/nginx \
 --pid-path=/var/run/nginx.pid \
