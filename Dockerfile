@@ -82,8 +82,8 @@ RUN ./configure \
 
 RUN make && make install
 
-RUN cp /usr/local/php70/etc/php-fpm.conf.default /usr/local/php70/etc/php-fpm.conf
-RUN cp /usr/local/php70/etc/php-fpm.d/www.conf.default /usr/local/php70/etc/php-fpm.d/www.conf
+ADD php-fpm.conf /usr/local/php70/etc/php-fpm.conf
+ADD www.conf /usr/local/php70/etc/php-fpm.d/www.conf
 
 ADD nginx.conf /usr/local/nginx/conf/nginx.conf
 
