@@ -23,7 +23,7 @@ RUN find / -name "nginx*"
 WORKDIR cd /home/dcgz/source
 
 RUN tar -xf nginx-1.12.2.tar.gz
-RUN tar -xf php-7.0.26.tar.gz
+#RUN tar -xf php-7.0.26.tar.gz
 
 WORKDIR nginx-1.12.2 && ./configure  \
 --prefix=/usr/local/nginx \
