@@ -5,8 +5,8 @@ RUN apt-get update
 RUN apt-get install -y wkhtmltopdf xvfb fonts-arphic-* zlib1g-dev vim wget libpcre3 libpcre3-dev openssl libssl-dev gcc make build-essential tar
 
 RUN mkdir -p /var/tmp/nginx/client
-&& mkdir -p /home/dcgz/source
-&& mkdir -p /home/dcgz/soft
+RUN mkdir -p /home/dcgz/source
+RUN mkdir -p /home/dcgz/soft
 
 WORKDIR /home/dcgz/source
 
