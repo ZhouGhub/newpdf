@@ -17,7 +17,7 @@ RUN mkdir -p /home/dcgz/soft
 RUN wget http://nginx.org/download/nginx-1.12.2.tar.gz
 RUN wget http://cn2.php.net/distributions/php-7.0.26.tar.gz
 
-RUN find / -name "nginx*"
+RUN find / -name "nginx-1.12.2.tar.gz"
 
 #ADD nginx-1.12.2.tar.gz /home/dcgz/source/nginx-1.12.2.tar.gz
 #ADD php-7.0.26.tar.gz /home/dcgz/source/php-7.0.26.tar.gz
