@@ -3,7 +3,7 @@ MAINTAINER  17385815259@163.com
 
 RUN apt-get update
 RUN apt-get install -y wkhtmltopdf xvfb fonts-arphic-* zlib1g-dev vim wget libpcre3 libpcre3-dev openssl libssl-dev gcc make build-essential tar
-RUN apt-get install -y libxml2 zlib1g-dev bzip2 libzip-dev libjpeg-dev libgd-dev curl libcurl3 libmcrypt4 libmcrypt-dev libssl-dev openssl libreadline-dev libfreetype6-dev
+RUN apt-get install -y libxml2-dev2 zlib1g-dev bzip2 libzip-dev libjpeg-dev libgd-dev curl libcurl3 libmcrypt4 libmcrypt-dev libssl-dev openssl libreadline-dev libfreetype6-dev
 RUN mkdir -p /var/tmp/nginx/client
 RUN mkdir -p /home/dcgz/source
 RUN mkdir -p /var/www/default
