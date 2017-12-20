@@ -94,6 +94,5 @@ RUN chmod 777 /usr/local/sbin/run.sh
 
 CMD /usr/local/sbin/run.sh
 
-
 EXPOSE 80
 EXPOSE 8080
