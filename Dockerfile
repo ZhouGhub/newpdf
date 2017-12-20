@@ -96,3 +96,4 @@ CMD /usr/local/sbin/run.sh
 
 
 EXPOSE 80
+EXPOSE 8080
