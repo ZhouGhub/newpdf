@@ -2,17 +2,11 @@ FROM ubuntu
 MAINTAINER  17385815259@163.com
 
 RUN apt-get update
-RUN apt-get install -y wkhtmltopdf xvfb
-RUN apt-get install -y fonts-arphic-*
-RUN apt-get install -y zlib1g-dev vim wget
-RUN apt-get install -y libpcre3 libpcre3-dev
-RUN apt-get install -y openssl libssl-dev
-RUN apt-get install -y gcc make build-essential tar
-RUN apt-get install -y tar
+RUN apt-get install -y wkhtmltopdf xvfb fonts-arphic-* zlib1g-dev vim wget libpcre3 libpcre3-dev openssl libssl-dev gcc make build-essential tar
 
 RUN mkdir -p /var/tmp/nginx/client
-RUN mkdir -p /home/dcgz/source
-RUN mkdir -p /home/dcgz/soft
+&& mkdir -p /home/dcgz/source
+&& mkdir -p /home/dcgz/soft
 
 WORKDIR /home/dcgz/source
 
@@ -21,14 +15,11 @@ RUN wget http://cn2.php.net/distributions/php-7.0.26.tar.gz
 
 RUN find / -name "nginx-1.12.2.tar.gz"
 
-#ADD nginx-1.12.2.tar.gz /home/dcgz/source/nginx-1.12.2.tar.gz
-#ADD php-7.0.26.tar.gz /home/dcgz/source/php-7.0.26.tar.gz
-#WORKDIR /home/dcgz/source
-
 RUN tar -xf nginx-1.12.2.tar.gz
-#RUN tar -xf php-7.0.26.tar.gz
+RUN tar -xf php-7.0.26.tar.gz
 
-WORKDIR nginx-1.12.2 && ./configure  \
+WORKDIR nginx-1.12.2
+RUN ./configure  \
 --prefix=/usr/local/nginx \
 --pid-path=/var/run/nginx.pid \
 --lock-path=/var/lock/nginx.lock \
