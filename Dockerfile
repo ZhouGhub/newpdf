@@ -9,6 +9,7 @@ RUN apt-get install -y libpcre3 libpcre3-dev
 RUN apt-get install -y openssl libssl-dev
 RUN apt-get install -y gcc make build-essential tar
 RUN apt-get install -y tar
+
 RUN mkdir -p /var/tmp/nginx/client
 RUN mkdir -p /home/dcgz/source
 RUN mkdir -p /home/dcgz/soft
