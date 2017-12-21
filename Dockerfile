@@ -117,7 +117,7 @@ CMD /usr/local/sbin/run.sh
 ####
 #VOLUME virtual floder to localhost floder
 ####
-#VOLUME ["/data1","/data2"]
+VOLUME ["/usr/local/nginx/logs","/var/log/docker_nginx_logs"]
 
 EXPOSE 80
 EXPOSE 8080
