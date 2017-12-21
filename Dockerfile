@@ -98,7 +98,7 @@ RUN make && make install
 ####
 ADD php-fpm.conf /usr/local/php70/etc/php-fpm.conf
 ADD www.conf /usr/local/php70/etc/php-fpm.d/www.conf
-ADD phpinfo.php /var/www/site/www.pdf.com/index.php
+ADD phpinfo.php /var/www/site/www.pdf.com/phpinfo.php
 ADD index.php /var/www/default/index.php
 ADD nginx.conf /usr/local/nginx/conf/nginx.conf
 ADD run.sh /usr/local/sbin/run.sh
@@ -108,6 +108,7 @@ ADD run.sh /usr/local/sbin/run.sh
 ####
 RUN chmod 777 /usr/local/sbin/run.sh
 RUN chmod 755 /var/www/site/www.pdf.com/phpinfo.php
+RUN mv /var/www/site/www.pdf.com/phpinfo.php /var/www/site/www.pdf.com/index.php
 ####
 #Execute the script
 ####
