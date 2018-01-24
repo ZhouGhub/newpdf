@@ -120,4 +120,4 @@ CMD /usr/local/sbin/run.sh
 VOLUME ["/usr/local/nginx/logs","/var/log/docker_nginx_logs"]
 
 EXPOSE 80
-EXPOSE 8080
+#EXPOSE 8080
