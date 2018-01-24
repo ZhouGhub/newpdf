@@ -102,6 +102,7 @@ ADD phpinfo.php /var/www/site/www.pdf.com/phpinfo.php
 ADD index.php /var/www/default/index.php
 ADD nginx.conf /usr/local/nginx/conf/nginx.conf
 ADD run.sh /usr/local/sbin/run.sh
+ADD simsun.ttc /usr/share/fonts/simsun.ttc
 
 ####
 #Modify permissions
