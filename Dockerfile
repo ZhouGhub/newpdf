@@ -5,8 +5,8 @@ MAINTAINER  17385815259@163.com
 # install Library and software
 ####
 RUN apt-get update
-RUN apt-get install -y wkhtmltopdf xvfb fonts-arphic-* zlib1g-dev vim wget libpcre3 libpcre3-dev openssl libssl-dev gcc make build-essential tar
-RUN apt-get install -y libxml2 libxml2-dev zlib1g-dev libbz2-dev bzip2 libzip-dev libjpeg-dev libgd-dev curl libcurl3 libcurl3-dev libmcrypt4 libmcrypt-dev libssl-dev openssl libreadline-dev libfreetype6-dev
+RUN apt-get install -y xvfb fonts-arphic-* zlib1g-dev vim wget libpcre3 libpcre3-dev openssl libssl-dev gcc make build-essential tar
+RUN apt-get install -y libxml2 libxml2-dev libbz2-dev bzip2 libzip-dev libjpeg-dev libgd-dev curl libcurl3 libcurl3-dev libmcrypt4 libmcrypt-dev libssl-dev openssl libreadline-dev libfreetype6-dev
 
 ####
 # new creat folder
@@ -103,11 +103,13 @@ ADD index.php /var/www/default/index.php
 ADD nginx.conf /usr/local/nginx/conf/nginx.conf
 ADD run.sh /usr/local/sbin/run.sh
 ADD simsun.ttc /usr/share/fonts/simsun.ttc
+ADD wkhtmltox/bin/wkhtmltopdf /usr/sbin/wkhtmltopdf
 
 ####
 #Modify permissions
 ####
 RUN chmod 777 /usr/local/sbin/run.sh
+RUN chmod 777 /usr/sbin/wkhtmltopdf
 RUN chmod 755 /var/www/site/www.pdf.com/phpinfo.php
 RUN mv /var/www/site/www.pdf.com/phpinfo.php /var/www/site/www.pdf.com/index.php
 ####
